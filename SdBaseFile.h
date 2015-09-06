@@ -25,27 +25,6 @@
  */
 #ifdef __AVR__
 #include <avr/pgmspace.h>
-#else  // __AVR__
-#ifndef PGM_P
-/** pointer to flash for ARM */
-#define PGM_P const char*
-#endif  // PGM_P
-#ifndef PSTR
-/** store literal string in flash for ARM */
-#define PSTR(x) (x)
-#endif  // PSTR
-#ifndef pgm_read_byte
-/** read 8-bits from flash for ARM */
-#define pgm_read_byte(addr) (*(const unsigned char*)(addr))
-#endif  // pgm_read_byte
-#ifndef pgm_read_word
-/** read 16-bits from flash for ARM */
-#define pgm_read_word(addr) (*(const uint16_t*)(addr))
-#endif  // pgm_read_word
-#ifndef PROGMEM
-/** store in flash for ARM */
-#define PROGMEM const
-#endif  // PROGMEM
 #endif  // __AVR__
 #include <Arduino.h>
 #include <SdFatConfig.h>
